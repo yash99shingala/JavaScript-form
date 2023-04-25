@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container mt-3">
+        <h2>Form Validation</h2>
+        <form>
+            <div class="mb-3 mt-3">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter name">
+            </div>
+
+            <div class="mb-3 mt-3">
+                <label for="email">Email:</label>
+                <input type="text" class="form-control" id="email" placeholder="Enter email">
+            </div>
+
+            <div class="mb-3 mt-3">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter password">
+            </div>
+
+            <div class="mb-3 mt-3">
+                <label for="phone">Phone:</label>
+                <input type="tel" class="form-control" id="phone" placeholder="Enter Phone number">
+            </div>
+
+            <button type="button" onclick="save()" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+</body>
+
+</html>
+
+
+<script type="text/javascript">
+
+
+    function save() {
+
+        
+        let name = document.getElementById('name').value;
+        let letter = /^[a-z]+$/;
+        var reg = new RegExp(letter);
+
+        if (reg.test(name)) {
+            console.log("Done"),
+                document.getElementById('name').style.borderColor = "blue";
+        }
+        else {
+            alert("Enter Vaild Name"),
+                document.getElementById('name').style.borderColor = "yellow" ;
+                return false;
+        }
+
+
+       
+        let email = document.getElementById('email').value;
+        let eml = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+        var check = new RegExp(eml);
+
+        if (check.test(email)) {
+            console.log("Done"),
+                document.getElementById('email').style.borderColor = "blue";
+        }
+        else {
+            alert("Enter Vaild Email"),
+                document.getElementById('email').style.borderColor = "yellow";
+                return false;
+        }
+
+
+        
+        let password = document.getElementById('password').value;
+        let pass = /^.{8,16}$/;
+        var pwd = new RegExp(pass);
+
+        if (pwd.test(password)) {
+            console.log("Done"),
+                document.getElementById('password').style.borderColor = "blue";
+        }
+        else {
+            alert("Password must be between 8 to 16 characters."),
+                document.getElementById('password').style.borderColor = "yellow";
+                return false;
+        }
+        
+        let phone = document.getElementById('phone').value;
+        let phn = /^[0-9]{10}$/;
+        var no = new RegExp(phn);
+
+        if (no.test(phone)) {
+            console.log("Done"),
+                document.getElementById('phone').style.borderColor = "blue";
+        }
+        else {
+            alert("Phone number can only contain 10 digits."),
+                document.getElementById('phone').style.borderColor = "yellow";
+                return false;
+        }
+    }
+</script>
